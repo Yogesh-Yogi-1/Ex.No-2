@@ -38,7 +38,8 @@ Ex02.l
 identifier [a-zA-Z][a-zA-Z0-9]*
 %%
 #.* { printf("\n%s is a PREPROCESSOR DIRECTIVE", yytext); } 
-int|float|char|double|while|for|do|if|break|continue|void|switch|case|long|struct|const|typedef|return|else|goto { printf("\n\t%s is a KEYWORD", yytext); }
+int|float|char|double|while|for|do|if|break|continue|void|switch|case|long|struct|const
+  |typedef|return|else|goto { printf("\n\t%s is a KEYWORD", yytext); }
 "/*" { COMMENT = 1; }
 "*/" { COMMENT = 0; }
 {identifier}\( { if (!COMMENT) printf("\n\nFUNCTION\n\t%s", yytext); }
