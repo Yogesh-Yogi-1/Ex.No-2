@@ -6,7 +6,6 @@
 1.	Start the program.
 
 2.	Lex program consists of three parts.
-
      a.	Declaration %%
 
      b.	Translation rules %%
@@ -15,7 +14,6 @@
 
 3.	The declaration section includes declaration of variables, maintest, constants and regular definitions.
 4.	Translation rule of lex program are statements of the form
-
     a.	P1 {action}
 
     b.	P2 {action}
@@ -37,9 +35,7 @@ Ex02.l
 %{
 /* program to recognize a C program */ int COMMENT = 0;
 %}
-
 identifier [a-zA-Z][a-zA-Z0-9]*
-
 %%
 #.* { printf("\n%s is a PREPROCESSOR DIRECTIVE", yytext); } 
 int|float|char|double|while|for|do|if|break|continue|void|switch|case|long|struct|const|typedef|return|else|goto { printf("\n\t%s is a KEYWORD", yytext); }
@@ -56,7 +52,6 @@ int|float|char|double|while|for|do|if|break|continue|void|switch|case|long|struc
 = { if (!COMMENT) printf("\n\t%s is an ASSIGNMENT OPERATOR", yytext); }
 \<=|\>=|\<|==|\> { if (!COMMENT) printf("\n\t%s is a RELATIONAL OPERATOR", yytext); }
 %%
-
 int main(int argc, char **argv) { if (argc > 1) {
 FILE *file;
 file = fopen(argv[1], "r"); if (!file) {
@@ -68,7 +63,6 @@ yylex(); printf("\n\n"); return 0;
 }
 int yywrap() { return 0;
 }
-
 ```
 var.c
 ```
